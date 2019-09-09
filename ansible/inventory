@@ -1,0 +1,17 @@
+[master1]
+mesos1 ansible_ssh_user=ansible ansible_ssh_host=ansible@10.0.0.198 ansible_ssh_pass=1
+mesos2 ansible_ssh_user=ansible ansible_ssh_host=ansible@10.0.0.52 ansible_ssh_pass=1
+mesos3 ansible_ssh_user=ansible ansible_ssh_host=ansible@10.0.0.226 ansible_ssh_pass=1
+
+[master:children]
+master1
+
+[zookeeper]
+zoo ansible_ssh_user=ansible ansible_ssh_host=ansible@10.0.0.83 ansible_ssh_pass=1
+
+[zoo1:children]
+zookeeper
+
+[all:children]
+master
+zoo1

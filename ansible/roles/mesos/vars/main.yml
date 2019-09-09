@@ -1,0 +1,3 @@
+---
+
+HOST_COUNT: "{{ groups['master'] | length }}"
